@@ -1,0 +1,7 @@
+{
+	"user": "AbyssMorgan",
+	"repo": "3DTryg",
+	"entry": "main.pwn",
+	"output": "main.amx",
+	"dependencies": ["Southclaws/samp-stdlib"]
+}
