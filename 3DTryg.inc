@@ -13,7 +13,7 @@
  * Modules: FoxForeach, Foreach                                                                                                      *
  * Internal Modules: Stream3D, Actor, Anims, VehicleCollision                                                                        *
  *                                                                                                                                   *
- * File Version: 4.8.3X                                                                                                              *
+ * File Version: 4.8.4X                                                                                                              *
  * MapAndreas Version: 1.2.1                                                                                                         *
  * ColAndreas Version: 1.4.0                                                                                                         *
  * YSF Version: R19 (kurta999)                                                                                                       *
@@ -618,11 +618,11 @@
 /*
 //Check Version 3DTryg.inc
 #if !defined TRYG3D_SAMP_INCLUDE
-	#error [ADM] You need 3DTryg.inc v4.8.3X (adm.ct8.pl/d/3DTryg.inc)
+	#error [ADM] You need 3DTryg.inc v4.8.4X (adm.ct8.pl/d/3DTryg.inc)
 #elseif !defined TRYG3D_VERSION
-	#error [ADM] Update you 3DTryg.inc to v4.8.3X (adm.ct8.pl/d/3DTryg.inc)
-#elseif (TRYG3D_VERSION < 40803)
-	#error [ADM] Update you 3DTryg.inc to v4.8.3X (adm.ct8.pl/d/3DTryg.inc)
+	#error [ADM] Update you 3DTryg.inc to v4.8.4X (adm.ct8.pl/d/3DTryg.inc)
+#elseif (TRYG3D_VERSION < 40804)
+	#error [ADM] Update you 3DTryg.inc to v4.8.4X (adm.ct8.pl/d/3DTryg.inc)
 #endif
 */
 
@@ -641,7 +641,7 @@
 #define _3D_Tryg
 #define TRYG3D_SAMP_INCLUDE
 
-#define TRYG3D_VERSION									(40803) //a.b.c 10000*a+100*b+c
+#define TRYG3D_VERSION									(40804) //a.b.c 10000*a+100*b+c
 #define Tryg3D_Version                                  TRYG3D_VERSION
 #if defined GetPlayerCustomSkin
 	#define TRYG3D_SAMP_VERSION							"0.3 DL"
@@ -1140,6 +1140,7 @@ new STREAMER_TAG_AREA:Tryg3D::VehicleCollisionZone[MAX_VEHICLES],
 
 //Hook: OnVehicleSpawn
 public OnVehicleSpawn(vehicleid){
+	if(!IsValidVehicle(vehicleid)) return 0;
 	if(Tryg3D::VehicleCollisionSystem){
 		Tryg3D::SyncVehicleCollision(vehicleid);
 	}
@@ -2254,7 +2255,7 @@ stock CreateDynamicExplosion(Float:x,Float:y,Float:z,type,Float:radius,worldid =
 				GetPlayerPos(i,px,py,pz);
 			}
 			if((GetPlayerInterior(i) == interiorid || interiorid == -1) && (GetPlayerVirtualWorld(i) == worldid || worldid == -1) && (VectorSize(px-x,py-y,pz-z) <= distance)){
-				CreateExplosionForPlayer(i,x,y,z,type,radius);
+				if(type != 14) CreateExplosionForPlayer(i,x,y,z,type,radius);
 			}
 		}
 	} else {
@@ -2265,7 +2266,7 @@ stock CreateDynamicExplosion(Float:x,Float:y,Float:z,type,Float:radius,worldid =
 				GetPlayerPos(playerid,px,py,pz);
 			}
 			if((GetPlayerInterior(playerid) == interiorid || interiorid == -1) && (GetPlayerVirtualWorld(playerid) == worldid || worldid == -1) && (VectorSize(px-x,py-y,pz-z) <= distance)){
-				CreateExplosionForPlayer(playerid,x,y,z,type,radius);
+				if(type != 14) CreateExplosionForPlayer(playerid,x,y,z,type,radius);
 			}
 		}
 	}
@@ -2285,19 +2286,19 @@ stock CreateDynamicExplosionDMG(Float:x,Float:y,Float:z,type,Float:radius,worldi
 					if(IsPlayerInAnyVehicle(i)){
 						T3D:vid = GetPlayerVehicleID(i);
 						GetVehicleHealth(T3D:vid,T3D:health);
-						CreateExplosionForPlayer(i,x,y,z,type,radius);
+						if(type != 14) CreateExplosionForPlayer(i,x,y,z,type,radius);
 						if(i != byplayerid) SetVehicleHealth(T3D:vid,NLTZF(T3D:health-vehicle_damage));
 					} else {
 						GetPlayerHealth(i,T3D:health);
 						GetPlayerArmour(i,T3D:armour);
 						SetPlayerHealth(i,765.0); //anti death in explosion
-						CreateExplosionForPlayer(i,x,y,z,type,radius);
+						if(type != 14) CreateExplosionForPlayer(i,x,y,z,type,radius);
 						SetPlayerHealth(i,T3D:health);
 						SetPlayerArmour(i,T3D:armour);
 						if(i != byplayerid) Tryg3D::GivePlayerDamage(i,damage,byplayerid,51,3);
 					}
 				} else {
-					CreateExplosionForPlayer(i,x,y,z,type,radius);
+					if(type != 14) CreateExplosionForPlayer(i,x,y,z,type,radius);
 				}
 			}
 		}
@@ -2313,19 +2314,19 @@ stock CreateDynamicExplosionDMG(Float:x,Float:y,Float:z,type,Float:radius,worldi
 					if(IsPlayerInAnyVehicle(playerid)){
 						T3D:vid = GetPlayerVehicleID(playerid);
 						GetVehicleHealth(T3D:vid,T3D:health);
-						CreateExplosionForPlayer(playerid,x,y,z,type,radius);
+						if(type != 14) CreateExplosionForPlayer(playerid,x,y,z,type,radius);
 						if(playerid != byplayerid) SetVehicleHealth(T3D:vid,NLTZF(T3D:health-vehicle_damage));
 					} else {
 						GetPlayerHealth(playerid,T3D:health);
 						GetPlayerArmour(playerid,T3D:armour);
 						SetPlayerHealth(playerid,765.0); //anti death in explosion
-						CreateExplosionForPlayer(playerid,x,y,z,type,radius);
+						if(type != 14) CreateExplosionForPlayer(playerid,x,y,z,type,radius);
 						SetPlayerHealth(playerid,T3D:health);
 						SetPlayerArmour(playerid,T3D:armour);
 						if(playerid != byplayerid) Tryg3D::GivePlayerDamage(playerid,damage,byplayerid,51,3);
 					}
 				} else {
-					CreateExplosionForPlayer(playerid,x,y,z,type,radius);
+					if(type != 14) CreateExplosionForPlayer(playerid,x,y,z,type,radius);
 				}
 			}
 		}
