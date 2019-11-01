@@ -5,7 +5,6 @@ Include contain professional functions for manipulating (coordinates / rotations
 2. [url=https://www.youtube.com/watch?v=fTvbNnZpogY][color=#FF0000]EngineV6[/color][/url] [url=adm.ct8.pl/12][color=#003D00][b]Thread[/b][/color][/url]
 3. [url=https://www.youtube.com/watch?v=PtJCS-3EGY0]EngineX[/url] [url=adm.ct8.pl/12][color=#003D00][b]Thread[/b][/color][/url]
 4. [url=https://www.youtube.com/watch?v=ZCThAi3FKyU]Missile Launch[/url] [url=adm.ct8.pl/18][color=#003D00][b]Thread[/b][/color][/url]
-5. [url=https://www.youtube.com/watch?v=Pd5HmlL8uXw]Vehicle Missile Launch (MapAndreas Version)[/url] [url=adm.ct8.pl/19][color=#003D00][b]Thread[/b][/color][/url]
 6. [url=https://www.youtube.com/watch?v=HTHinI1IGhY]Vehicle Missile Launch (ColAndreas Version)[/url] [url=adm.ct8.pl/19][color=#003D00][b]Thread[/b][/color][/url]
 7. [url=https://www.youtube.com/watch?v=SR0jZ_IxnRc]GetGroundRotation[/url]
 8. [url=https://www.youtube.com/watch?v=dJUQKrBkeY8]GetPlayerCollisionFlags (ColAndreas)[/url]
@@ -36,8 +35,6 @@ Include contain professional functions for manipulating (coordinates / rotations
  *                                                                                                                                   *
  *                                                    )(   3DTryg Functions   )(                                                     *
  *                                                                                                                                   *
- *                                                  !!! THIS FILE IS READ ONLY !!!                                                   *
- *                                                                                                                                   *
  * Copyright © 2019 Abyss Morgan. All rights reserved.                                                                               *
  * Contributors: Crayder, IllidanS4, Nero_3D, RyDeR, Zoutdaxv, hesambia, Neil Lamoureux, Ivan_Ino, Ralfie, Unrea1, Katarina Calzaghe *
  * Mr.Reus                                                                                                                           *
@@ -45,46 +42,36 @@ Include contain professional functions for manipulating (coordinates / rotations
  * Website:  adm.ct8.pl                                                                                                              *
  * Download: adm.ct8.pl/r/download                                                                                                   *
  *                                                                                                                                   *
- * Plugins: MapAndreas, ColAndreas, YSF, Streamer, FCNPC, VehicleStreamer                                                            *
+ * Plugins: ColAndreas, YSF, Streamer, FCNPC, VehicleStreamer                                                                        *
  * Modules: FoxForeach, Foreach                                                                                                      *
- * Internal Modules: Stream3D, Actor, ATM, Anims, VehicleCollision                                                                   *
+ * Internal Modules: Actor, Anims, VehicleCollision                                                                                  *
  *                                                                                                                                   *
- * File Version: 4.8.3X                                                                                                              *
- * MapAndreas Version: 1.2.1                                                                                                         *
+ * File Version: 4.8.5                                                                                                               *
  * ColAndreas Version: 1.4.0                                                                                                         *
  * YSF Version: R19 (kurta999)                                                                                                       *
  * Streamer Version: 2.9.4                                                                                                           *
  * VehicleStreamer Version: 2.9.4                                                                                                    *
  * FCNPC Version: 2.0.0                                                                                                              *
  *                                                                                                                                   *
- * //3DTryg Collision Precision:                                                                                                     *
- * 1. ColAndreas   - The most accurate precision with ColAndreas plugin.                                                             *
- * 2. MapAndreas   - Average precision with MapAndreas plugin.                                                                       *
- *                                                                                                                                   *
- * //Foreach Types:                                                                                                                  *
+ * Foreach Types:                                                                                                                    *
  * 1. FoxForeach                                                                                                                     *
  * 2. YSIForeach                                                                                                                     *
  * 3. GetPlayerPoolSize                                                                                                              *
  *                                                                                                                                   *
- * //Compiler Options:                                                                                                               *
- * DISABLE_3D_TRYG_INIT         //Use before 3DTryg.inc for disable MapAndreas/ColAndreas Auto Init                                  *
- * DISABLE_3D_TRYG_ATM          //Use before 3DTryg.inc for disable ATM Module                                                       *
+ * Compiler Options:                                                                                                                 *
+ * DISABLE_3D_TRYG_INIT         //Use before 3DTryg.inc for disable ColAndreas Auto Init                                             *
  * DISABLE_3D_TRYG_ACTOR        //Use before 3DTryg.inc for disable Actors Module                                                    *
  * DISABLE_3D_TRYG_FOXFOREACH   //Use before 3DTryg.inc for disable FoxForeach Module                                                *
  * DISABLE_3D_TRYG_YSIFOREACH   //Use before 3DTryg.inc for disable Foreach Module                                                   *
  * DISABLE_3D_TRYG_VEHICLECOL   //Use before 3DTryg.inc for disable VehicleCollision Module                                          *
- * DISABLE_3D_TRYG_MAPANDREAS   //Use before 3DTryg.inc for disable MapAndreas Module                                                *
  * DISABLE_3D_TRYG_COLANDREAS   //Use before 3DTryg.inc for disable ColAndreas Module                                                *
  * DISABLE_3D_TRYG_YSF          //Use before 3DTryg.inc for disable YSF Module                                                       *
  * DISABLE_3D_TRYG_STREAMER     //Use before 3DTryg.inc for disable Streamer Module                                                  *
  * DISABLE_3D_TRYG_FCNPC        //Use before 3DTryg.inc for disable FCNPC Module                                                     *
  * DISABLE_3D_TRYG_VEHSTREAMER  //Use before 3DTryg.inc for disable VehicleStreamer Module                                           *
- * DISABLE_3D_TRYG_GPS          //Use before 3DTryg.inc for disable GPS Module                                                       *
  * ENABLE_3D_TRYG_YSI_SUPPORT   //Use before 3DTryg.inc for enable YSI Support (use only when 3DTryg say error for this)             *
- * ENABLE_3D_TRYG_STREAM3D      //Use before 3DTryg.inc for enable Stream3D Module                                                   *
- * ENABLE_3D_TRYG_ANIMS         //Use before 3DTryg.inc for enable Anims Module                                                      *
  *                                                                                                                                   *
- * //Complementary Functions:
+ * Complementary Functions:
  * Float:sqrtN(Float:value,Float:exponent);
  * abs(value);
  * Float:fabs(Float:value);
@@ -92,7 +79,7 @@ Include contain professional functions for manipulating (coordinates / rotations
  * IsEven(value);
  * Tryg3D::RandomFloat(Float:min,Float:max,accuracy=4);
  * 
- * //Internal Functions:
+ * Internal Functions:
  * single_clock(max,id); //For Random::PointOnClock parameter rz
  * even_clock(max,id); //For Random::PointOnClock parameter rz
  * uneven_clock(max,id); //For Random::PointOnClock parameter rz
@@ -113,7 +100,7 @@ Include contain professional functions for manipulating (coordinates / rotations
  * Tryg3D::IsPlayerSpawned(playerid);
  * Tryg3D::GetActiveTime();
  * 
- * //General Functions:
+ * General Functions:
  * CountPlayers(bool:isplayer=true,bool:isnpc=true);
  * CountActors();
  * CountVisibleActors(playerid);
@@ -159,8 +146,6 @@ Include contain professional functions for manipulating (coordinates / rotations
  * GetPointToPointVector(Float:x,Float:y,Float:z,Float:tx,Float:ty,Float:tz,&Float:vx,&Float:vy,&Float:vz);
  * IsPointBetween2Points2D(Float:px,Float:py,Float:xA,Float:yA,Float:xB,Float:yB);
  * IsPointBetween2Points3D(Float:px,Float:py,Float:pz,Float:xA,Float:yA,Float:zA,Float:xB,Float:yB,Float:zB);
- * IsPointNearly2Points2D(Float:px,Float:py,Float:xA,Float:yA,Float:xB,Float:yB,Float:maxdist);
- * IsPointNearly2Points3D(Float:px,Float:py,Float:pz,Float:xA,Float:yA,Float:zA,Float:xB,Float:yB,Float:zB,Float:maxdist);
  * Area::PointInCircle(Float:px,Float:py,Float:x,Float:y,Float:radius);
  * Area::PointInCylinder3D(Float:px,Float:py,Float:pz,Float:xA,Float:yA,Float:zA,Float:xB,Float:yB,Float:zB,Float:radius);
  * Area::PointInCylinder2D(Float:px,Float:py,Float:pz,Float:x,Float:y,Float:minz,Float:maxz,Float:radius);
@@ -250,7 +235,7 @@ Include contain professional functions for manipulating (coordinates / rotations
  * IsPlayerAimingAt(playerid,Float:x,Float:y,Float:z,Float:radius);
  * IPL_CreateObject(modelid,Float:x,Float:y,Float:z,Float:qx,Float:qy,Float:qz,Float:qw,Float:drawdistance=0.0);
  * 
- * //Universal Functions:
+ * Universal Functions:
  * Item::GetInvalidID(Item3D_Type:item_type);
  * Item::GetPos(elementid,Item3D_Type:element_type,&Float:x,&Float:y,&Float:z);
  * Item::GetVirtualWorld(TRYG3D_ELEMENT_TAG:elementid,Item3D_Type:element_type);
@@ -278,7 +263,7 @@ Include contain professional functions for manipulating (coordinates / rotations
  * Item::InEllipse(elementid,Item3D_Type:element_type,Float:cx,Float:cy,Float:size_x,Float:size_y);
  * Item::InEllipticalCylinder2D(elementid,Item3D_Type:element_type,Float:cx,Float:cy,Float:minz,Float:maxz,Float:size_x,Float:size_y);
  * 
- * //Universal Functions (ColAndreas):
+ * Universal Functions (ColAndreas):
  * Item::ToItemIsWall(elementid,Item3D_Type:element_type,targetid,Item3D_Type:target_type);
  * Item::ToPointIsWall(Float:x,Float:y,Float:z,targetid,Item3D_Type:target_type);
  * Item::GetCollisionFlags(elementid,Item3D_Type:element_type);
@@ -287,33 +272,29 @@ Include contain professional functions for manipulating (coordinates / rotations
  * Item::InRangeOfItem(elementid,Item3D_Type:element_type,Float:range,targetid,Item3D_Type:target_type=item_player,bool:testLOS=true,bool:veh_col=false);
  * Item::GetOrientationPosCol(elementid,Item3D_Type:element_type,element_orientation:orientation,Float:distance,&Float:tx,&Float:ty,&Float:tz);
  * Item::IsPointInWaterOrient(TRYG3D_ELEMENT_TAG:elementid,Item3D_Type:element_type,Float:radius,element_orientation:orientation=o_front);
- * 
- * //Universal Functions (Stream3D):
- * Item::InStream(elementid,Item3D_Type:element_type,Stream:StreamData[Stream3D]);
- * Item::GetInStream(Stream:StreamData[Stream3D],Item3D_Type:element_type,element_list[],max_element=sizeof(element_list));
  *
- * //Universal Functions (Streamer):
+ * Universal Functions (Streamer):
  * Item::InDynamicArea(TRYG3D_ELEMENT_TAG:elementid,Item3D_Type:element_type,STREAMER_TAG_AREA:areaid);
  * Item::GetInDynamicArea(STREAMER_TAG_AREA:areaid,Item3D_Type:element_type,element_list[],max_element=sizeof(element_list));
  * 
- * //ScreenToWorld Functions:
+ * ScreenToWorld Functions:
  * ScreenToWorld(playerid,Float:screenX,Float:screenY,&Float:vX,&Float:vY,&Float:vZ);
  * WorldToScreen(playerid,Float:x,Float:y,Float:z,&Float:screenX,&Float:screenY);
  * ScreenToWorldCol(playerid,Float:distance,Float:screenX,Float:screenY,&Float:vX,&Float:vY,&Float:vZ);
  * Tryg3D::NormCrossProduct(&Float:x,&Float:y,&Float:z,Float:v1x,Float:v1y,Float:v1z,Float:v2x,Float:v2y,Float:v2z);
  * 
- * //Nero_3D Rotations Functions:
+ * Nero_3D Rotations Functions:
  * Tryg3D::GetRotationMatrixEuler(Float:matrix[][],Float:rx,Float:ry,Float:rz,T3D:eulermode:mode=T3D:euler_default);
  * Tryg3D::MatrixRotate(Float:matrix[][],Float:oX,Float:oY,Float:oZ,&Float:x,&Float:y,&Float:z);
  * Tryg3D::QuatRotate(Float:qw,Float:qx,Float:qy,Float:qz,Float:oX,Float:oY,Float:oZ,&Float:tx,&Float:ty,&Float:tz);
  * Tryg3D::GetQuatFromEuler(Float:rx,Float:ry,Float:rz,&Float:qw,&Float:qx,&Float:qy,&Float:qz,T3D:eulermode:mode=T3D:euler_default);
  * Tryg3D::EulerRotate(Float:rX,Float:rY,Float:rZ,Float:oX,Float:oY,Float:oZ,&Float:tx,&Float:ty,&Float:tz,T3D:eulermode:mode=T3D:euler_default);
  * 
- * //VehiclePartPosition Functions:
+ * VehiclePartPosition Functions:
  * GetVehiclePartPos(vehicleid,partid,&Float:tx,&Float:ty,&Float:tz,Float:offset_x=0.0,Float:offset_y=0.0,Float:offset_z=0.0);
  * GetDynamicVehiclePartPos(vehicleid,partid,&Float:tx,&Float:ty,&Float:tz,Float:offset_x=0.0,Float:offset_y=0.0,Float:offset_z=0.0);
  * 
- * //VehicleCollision Functions:
+ * VehicleCollision Functions:
  * IsVehicleCollisionEnabled();
  * Tryg3D::InitVehicleCollision(); //OnGameModeInit / OnFilterScriptInit
  * Tryg3D::ExitVehicleCollision();
@@ -325,18 +306,25 @@ Include contain professional functions for manipulating (coordinates / rotations
  * Item::ToPointIsVeh(Float:x,Float:y,Float:z,TRYG3D_ELEMENT_TAG:targetid,Item3D_Type:target_type);
  * Item::ToItemIsVeh(TRYG3D_ELEMENT_TAG:elementid,Item3D_Type:element_type,TRYG3D_ELEMENT_TAG:targetid,Item3D_Type:target_type);
  * 
- * //Extended Functions:
- * Tryg3D::GetModuleName(Tryg3D::Module:moduleid);
- * Tryg3D::GetModules(&modules_count=0);
- * Tryg3D::IsModuleLoaded(Tryg3D::Module:moduleid);
+ * Extended Functions:
  * Tryg3D::GetErrorCount();
  * Tryg3D::ResetErrorCount();
  * Tryg3D::SetStreamDistance(Float:streamdistance); //default 300.0
  * Tryg3D::GetStreamDistance();
  * Tryg3D::GetActiveCount();
  * Tryg3D::GetVersion(value);
+ * randomex(min,max);
+ * Tryg3D::KeyPressed(key);
+ * Tryg3D::KeyReleased(key);
+ * Tryg3D::KeyHolding(key);
+ * Tryg3D::SecToTimeDay(second);      //Use: %d:%02d:%02d:%02d
+ * Tryg3D::MSToTimeDay(millisecond);  //Use: %d:%02d:%02d:%02d
+ * Tryg3D::SecToTime(second);         //Use: %02d:%02d:%02d
+ * Tryg3D::MSToTime(millisecond);     //Use: %02d:%02d:%02d
+ * Tryg3D::SecToTimeMini(second);     //Use: %02d:%02d
+ * Tryg3D::MSToTimeMini(millisecond); //Use: %02d:%02d
  * 
- * //Animation Functions:
+ * Animation Functions:
  * Animation::IsPlayerSkydiving(playerid);
  * Animation::IsPlayerUsingParachute(playerid);
  * Animation::IsPlayerAiming(playerid);
@@ -348,20 +336,7 @@ Include contain professional functions for manipulating (coordinates / rotations
  * Animation::IsPlayerParaGlide(playerid);
  * Animation::IsPlayerFall(playerid);
  * 
- * //ATM Module Functions:
- * randomex(min,max);
- * Tryg3D::KeyPressed(key);
- * Tryg3D::KeyReleased(key);
- * Tryg3D::KeyHolding(key);
- * Tryg3D::GetSAMIncludeVersion(value,name[],maxdest=sizeof(name));
- * Tryg3D::SecToTimeDay(second);      //Use: %d:%02d:%02d:%02d
- * Tryg3D::MSToTimeDay(millisecond);  //Use: %d:%02d:%02d:%02d
- * Tryg3D::SecToTime(second);         //Use: %02d:%02d:%02d
- * Tryg3D::MSToTime(millisecond);     //Use: %02d:%02d:%02d
- * Tryg3D::SecToTimeMini(second);     //Use: %02d:%02d
- * Tryg3D::MSToTimeMini(millisecond); //Use: %02d:%02d
- * 
- * //Streamer Functions:
+ * Streamer Functions:
  * IsDynamicObjectInRangeOfPoint(objectid,Float:range,Float:x,Float:y,Float:z);
  * SetPlayerAbsolutePosition(playerid,Float:x,Float:y,Float:z,Float:angle,worldid=-1,interiorid=-1,compensatedtime=-1,freezeplayer=1);
  * SetPlayerAbsolutePositionVeh(playerid,Float:x,Float:y,Float:z,Float:angle,worldid=-1,interiorid=-1,compensatedtime=-1,freezeplayer=1);
@@ -370,17 +345,7 @@ Include contain professional functions for manipulating (coordinates / rotations
  * Random::PointInDynamicArea(STREAMER_TAG_AREA:areaid,&Float:tx,&Float:ty,&Float:tz);
  * IPL_CreateDynamicObject(modelid,Float:x,Float:y,Float:z,Float:qx,Float:qy,Float:qz,Float:qw,worldid=-1,interiorid=-1,playerid=-1,Float:streamdistance=STREAMER_OBJECT_SD,Float:drawdistance=STREAMER_OBJECT_DD,STREAMER_TAG_AREA:areaid=STREAMER_TAG_AREA:-1,priority=0);
  * 
- * //MapAndreas Functions:
- * Float:MapAndreasFindZ(Float:x,Float:y,&Float:z=0.0);
- * GetGroundRotation(Float:x,Float:y,Float:size,&Float:rx,&Float:ry);
- * GetPointInFrontOnGround(Float:x,Float:y,Float:z,Float:rx,Float:rz,&Float:tx,&Float:ty,&Float:tz,Float:max_distance);
- * IsPointInWater(Float:x,Float:y,Float:z=0.0);
- * 
- * //MapAndreas Extended Functions:
- * Tryg3D::IsMapAndreasInit();
- * Tryg3D::SafeMapAndreasInit(mode=MAP_ANDREAS_MODE_FULL,name[]="",len=sizeof(name));
- * 
- * //ColAndreas Functions:
+ * ColAndreas Functions:
  * MovePointCol(Float:StartX,Float:StartY,Float:StartZ,Float:EndX,Float:EndY,Float:EndZ,&Float:x,&Float:y,&Float:z);
  * MovePointColCutLine(Float:sX,Float:sY,Float:sZ,Float:eX,Float:eY,Float:eZ,&Float:x,&Float:y,&Float:z,Float:cut_size=0.0);
  * MovePointColCutLineEx(Float:sX,Float:sY,Float:sZ,Float:eX,Float:eY,Float:eZ,&Float:x,&Float:y,&Float:z,Float:cut_size=0.0);
@@ -392,7 +357,6 @@ Include contain professional functions for manipulating (coordinates / rotations
  * Float:GetPointInFrontOfVehicle2DCol(vehicleid,&Float:tx,&Float:ty,Float:radius);
  * GetPointInFrontOfVehicle3DCol(vehicleid,&Float:tx,&Float:ty,&Float:tz,Float:radius,&Float:rx=0.0,&Float:rz=0.0);
  * GetGroundRotation(Float:x,Float:y,Float:size,&Float:rx,&Float:ry);
- * GetPointInFrontOnGround(Float:x,Float:y,Float:z,Float:rx,Float:rz,&Float:tx,&Float:ty,&Float:tz,Float:max_distance);
  * GetPointCollisionFlags(Float:x,Float:y,Float:z,interiorid=0);
  * IsCollisionFlag(value,flag);
  * Float:UndergroundFindZ(Float:x,Float:y,&Float:z=0.0);
@@ -405,19 +369,19 @@ Include contain professional functions for manipulating (coordinates / rotations
  * IsBetweenPlayersIsWall(playerid,targetid);
  * IsBetweenPlayerToPointIsWall(playerid,Float:x,Float:y,Float:z);
  * GetPointInWallForPoint(Float:x,Float:y,Float:z,Float:radius,&Float:tx,&Float:ty,&Float:tz,Float:sector=90.0);
+ * SetPlayerCameraDirectionLookAt(playerid,Float:x,Float:y,Float:z,Float:distance = 5.0,Float:rx=20.0,Float:sector=90.0);
  * GetWallRotation(Float:sx,Float:sy,Float:sz,Float:ex,Float:ey,Float:ez,&Float:rx,&Float:rz,&Float:px=0.0,&Float:py=0.0,&Float:pz=0.0,Float:size=1.0,Float:cut_size=0.0);
- * Float:MapAndreasFindZ(Float:x,Float:y,&Float:z=0.0);
  * ColAndreas::FindGroundZ(Float:x,Float:y,Float:z,&Float:gZ);
  * 
- * //ColAndreas Extended Functions:
+ * ColAndreas Extended Functions:
  * Tryg3D::IsColAndreasInit();
  * Tryg3D::SafeColAndreasInit();
  * 
- * //ColAndreas Callbacks:
+ * ColAndreas Callbacks:
  * OnColAndreasRemoveBuilding();
  * OnPlayerDroppingGrenade(playerid,weaponid,Float:x,Float:y,Float:z);
  * 
- * //YSF Functions:
+ * YSF Functions:
  * Float:GetPlayerHydraReactorRX(playerid);
  * IsPlayerHydraReactorBoost(playerid);
  * GetPlayerRotation(playerid,&Float:rx,&Float:ry,&Float:rz);
@@ -434,7 +398,7 @@ Include contain professional functions for manipulating (coordinates / rotations
  * Random::PointInGangZone(zoneid,&Float:tx,&Float:ty);
  * Random::PointInPlayerGangZone(playerid,zoneid,&Float:tx,&Float:ty);
  * 
- * //FCNPC Functions:
+ * FCNPC Functions:
  * FCNPC::GetPointInFront(npcid,&Float:tx,&Float:ty,Float:radius);
  * FCNPC::InRangeOfPoint(npcid,Float:range,Float:x,Float:y,Float:z);
  * FCNPC::GetTargetAngle(npcid,Float:x,Float:y,&Float:rz=0.0);
@@ -443,7 +407,7 @@ Include contain professional functions for manipulating (coordinates / rotations
  * FCNPC::SetVehicleTargetRotation(npcid,Float:tx,Float:ty,Float:tz,Float:ry=0.0);
  * FCNPC::GoToAir(npcid,Float:x,Float:y,Float:z,type=FCNPC_MOVE_TYPE_AUTO,Float:speed=FCNPC_MOVE_SPEED_AUTO,Float:min_distance=0.0,stopdelay=250);
  * 
- * //FCNPC Functions (ColAndreas):
+ * FCNPC Functions (ColAndreas):
  * FCNPC::GetPointInFrontCol(npcid,&Float:tx,&Float:ty,Float:radius);
  * FCNPC::GoToCol(npcid,Float:x,Float:y,Float:z,type=FCNPC_MOVE_TYPE_AUTO,Float:speed=FCNPC_MOVE_SPEED_AUTO,mode = FCNPC_MOVE_MODE_AUTO,Float:cut_size=0.0,bool:set_angle=true,Float:min_distance=0.0,stopdelay=250);
  * FCNPC::GoToPlayerCol(npcid,playerid,type=FCNPC_MOVE_TYPE_AUTO,Float:speed=FCNPC_MOVE_SPEED_AUTO,mode = FCNPC_MOVE_MODE_AUTO,Float:cut_size=0.0,bool:set_angle=true,Float:min_distance=0.0,stopdelay=250);
@@ -451,33 +415,10 @@ Include contain professional functions for manipulating (coordinates / rotations
  * FCNPC::GoToPlayerOnGroundColVeh(npcid,playerid,type=FCNPC_MOVE_TYPE_AUTO,Float:speed=FCNPC_MOVE_SPEED_AUTO,mode = FCNPC_MOVE_MODE_AUTO,Float:cut_size=1.0,Float:climbing=2.0,bool:set_angle=true,Float:min_distance=0.0,stopdelay=250);
  * FCNPC::GoToAirCol(npcid,Float:x,Float:y,Float:z,type=FCNPC_MOVE_TYPE_AUTO,Float:speed=FCNPC_MOVE_SPEED_AUTO,Float:cut_size=0.0,Float:min_distance=0.0,stopdelay=250);
  * FCNPC::RandomMoveInDynamicArea(npcid,STREAMER_TAG_AREA:areaid,Float:climbing=2.0,type=FCNPC_MOVE_TYPE_AUTO,Float:speed=FCNPC_MOVE_SPEED_AUTO,mode = FCNPC_MOVE_MODE_AUTO,bool:set_angle=true,Float:min_distance=0.0,stopdelay=250);
- * FCNPC::RandomMoveInStream(npcid,Stream:StreamData[Stream3D],Float:climbing=2.0,type=FCNPC_MOVE_TYPE_AUTO,Float:speed=FCNPC_MOVE_SPEED_AUTO,mode = FCNPC_MOVE_MODE_AUTO,bool:set_angle=true,Float:min_distance=0.0,stopdelay=250);
  * FCNPC::SetAbsolutePosition(npcid,Float:x,Float:y,Float:z,Float:angle,worldid=-1,interiorid=-1,compensatedtime=-1,freezeplayer=1);
  * FCNPC::SetFloorPos(npcid);
  * 
- * //Stream3D Functions:
- * StreamCreate(variable);
- * StreamType:GetStreamType(Stream:StreamData[Stream3D]);
- * Stream:ConvertAreaToStream(areaid);
- * Stream:StreamCircle(Float:x,Float:y,Float:radius);
- * Stream:StreamCylinder3D(Float:xA,Float:yA,Float:zA,Float:xB,Float:yB,Float:zB,Float:radius);
- * Stream:StreamCylinder2D(Float:x,Float:y,Float:minz,Float:maxz,Float:radius);
- * Stream:StreamSphere(Float:x,Float:y,Float:z,Float:radius);
- * Stream:StreamRectangle(Float:minx,Float:miny,Float:maxx,Float:maxy);
- * Stream:StreamCube(Float:minx,Float:miny,Float:minz,Float:maxx,Float:maxy,Float:maxz);
- * Stream:StreamCircularSector(Float:x,Float:y,Float:rz,Float:radius,Float:view_angle);
- * Stream:StreamSphericalSector(Float:x,Float:y,Float:z,Float:rx,Float:rz,Float:radius,Float:vrx,Float:vrz);
- * Stream:StreamCone3D(Float:xA,Float:yA,Float:zA,Float:xB,Float:yB,Float:zB,Float:pointA_radius,Float:pointB_radius);
- * Stream:StreamCube3D(Float:x,Float:y,Float:z,Float:rx,Float:ry,Float:rz,Float:size_x,Float:size_y,Float:size_z);
- * Stream:StreamEllipse(Float:cx,Float:cy,Float:size_x,Float:size_y);
- * Stream:StreamEllipticalCylinder2D(Float:cx,Float:cy,Float:minz,Float:maxz,Float:size_x,Float:size_y);
- * IsValidStream(Stream:StreamData[Stream3D]);
- * Area::PointInStream(Float:x,Float:y,Float:z,Stream:StreamData[Stream3D]);
- * Random::PointInStream(Stream:StreamData[Stream3D],&Float:x,&Float:y,&Float:z);
- * Random::PointOnStream(Stream:StreamData[Stream3D],&Float:x,&Float:y,&Float:z);
- * IsVehicleFullyInStream(vehicleid,Stream:StreamData[Stream3D]);
- * 
- * //VehicleStreamer Functions:
+ * VehicleStreamer Functions:
  * GetDynamicVehicleFlags(vehicleid);
  * Float:GetDynamicVehicleSpeed(vehicleid);
  * Float:GetPointInFrontOfDynVeh2D(vehicleid,&Float:tx,&Float:ty,Float:radius);
@@ -487,13 +428,9 @@ Include contain professional functions for manipulating (coordinates / rotations
  * Float:GetPointInFrontOfDynVeh2DCol(vehicleid,&Float:tx,&Float:ty,Float:radius);
  * GetPointInFrontOfDynVeh3DCol(vehicleid,&Float:tx,&Float:ty,&Float:tz,Float:radius,&Float:rx=0.0,&Float:rz=0.0);
  * IsDynamicVehicleOnSpawn(vehicleid,Float:check_radius=1.0);
- * IsDynamicVehicleFullyInStream(vehicleid,Stream:StreamData[Stream3D]);
  * GetDynamicVehicleRotation(vehicleid,&Float:rx,&Float:ry,&Float:rz);
- * 
- * //Functions extra names:
- * Tryg3D::MapAndreasFindZ        -> ColAndreas::FindZ_For2DCoord / MapAndreasFindZ
  *
- * //Deprecated Functions:
+ * Deprecated Functions:
  * GetDistanceBetweenPoints       -> GetDistanceBetweenPoints3D
  * GetPlayersDistance             -> Item::GetDistance
  * GetVehiclesDistance            -> Item::GetDistance
@@ -523,7 +460,7 @@ Include contain professional functions for manipulating (coordinates / rotations
  * GetVehicleCollisionFlags       -> Item::GetCollisionFlags
  * IsPointInWaterFrontOfPlayer    -> Item::IsPointInWaterOrient
  *                                                                                                                                   *
- * //Symbols:                                                                                                                        *
+ * Symbols:                                                                                                                          *
  * FLOAT_PI                    - pi constant value                                                                                   *
  * FLOAT_EULER                 - Euler number                                                                                        *
  * FLOAT_NAN                   - Float NaN                                                                                           *
@@ -532,7 +469,7 @@ Include contain professional functions for manipulating (coordinates / rotations
  * VBTP                        - Value Bigger Than Possible                                                                          *
  * VLTP                        - Value Lower Than Possible                                                                           *
  *                                                                                                                                   *
- * //Definitions:                                                                                                                    *
+ * Definitions:                                                                                                                      *
  * VERTICAL_CAMERA_RADIUS      - (modifiable)                                                                                        *
  * HORIZONTAL_CAMERA_RADIUS    - (modifiable)                                                                                        *
  * INVALID_ROTATION            - (modifiable)                                                                                        *
@@ -543,7 +480,7 @@ Include contain professional functions for manipulating (coordinates / rotations
  * INVALID_MOVE_SPEED          - (modifiable)                                                                                        *
  * INVALID_VIRTUAL_WORLD                                                                                                             *
  *                                                                                                                                   *
- * //Position Flags:                                                                                                                 *
+ * Position Flags:                                                                                                                   *
  * POSITION_FLAG_WORLD                                                                                                               *
  * POSITION_FLAG_INTERIOR                                                                                                            *
  * POSITION_FLAG_AIR                                                                                                                 *
@@ -552,11 +489,11 @@ Include contain professional functions for manipulating (coordinates / rotations
  * POSITION_FLAG_UNDERWATER                                                                                                          *
  * POSITION_FLAG_UNDERGROUND                                                                                                         *
  *                                                                                                                                   *
- * //Vehicle Flags:                                                                                                                  *
+ * Vehicle Flags:                                                                                                                    *
  * VF_STREET        VF_AIRBORNE      VF_NATATORIAL    VF_MILITARY      VF_TRAIN         VF_RC            VF_CARRIAGE                 *
  * VF_AIRPLANE      VF_HELICOPTER    VF_BIKES         VF_TRAILER       VF_TOWABLE       VF_POLICE                                    *
  *                                                                                                                                   *
- * //Vehicle Parts:                                                                                                                  *
+ * Vehicle Parts:                                                                                                                    *
  * VEHICLE_PART_RFTIRE         - Right Front tire                                                                                    *
  * VEHICLE_PART_LFTIRE         - Left Front tire                                                                                     *
  * VEHICLE_PART_RRTIRE         - Right Rear tire                                                                                     *
@@ -656,21 +593,6 @@ Include contain professional functions for manipulating (coordinates / rotations
  * # o_right_front_up                                                                                                                *
  * # o_left_front_up                                                                                                                 *
  *                                                                                                                                   *
- * enum 'Tryg3D::Module'                                                                                                             *
- * # TRYG3D_MODULEID_MAPANDREAS                                                                                                      *
- * # TRYG3D_MODULEID_COLANDREAS                                                                                                      *
- * # TRYG3D_MODULEID_YSF                                                                                                             *
- * # TRYG3D_MODULEID_STREAMER                                                                                                        *
- * # TRYG3D_MODULEID_FOXFOREACH                                                                                                      *
- * # TRYG3D_MODULEID_YSIFOREACH                                                                                                      *
- * # TRYG3D_MODULEID_FCNPC                                                                                                           *
- * # TRYG3D_MODULEID_STREAM3D                                                                                                        *
- * # TRYG3D_MODULEID_ACTOR                                                                                                           *
- * # TRYG3D_MODULEID_ATM                                                                                                             *
- * # TRYG3D_MODULEID_ANIMS                                                                                                           *
- * # TRYG3D_MODULEID_VEHSTREAMER                                                                                                     *
- * # TRYG3D_MODULEID_VEHICLECOL                                                                                                      *
- *                                                                                                                                   *
  *************************************************************************************************************************************/
 [/php]
 
@@ -679,7 +601,6 @@ Include contain professional functions for manipulating (coordinates / rotations
 
 [b]More functions available with plugins:[/b]
 [url=https://github.com/Pottus/ColAndreas/releases]Use ColAndreas Functions (NOT REQUIRED)[/url]
-[url=http://forum.sa-mp.com/showthread.php?t=275492]Use MapAndreas Functions (NOT REQUIRED)[/url]
 [url=http://forum.sa-mp.com/showthread.php?t=513499]Use YSF Functions (NOT REQUIRED)[/url]
 [url=http://forum.sa-mp.com/showthread.php?t=102865]Use Streamer Functions (NOT REQUIRED)[/url]
 [url=https://github.com/ziggi/FCNPC/releases]Use FCNPC Functions (NOT REQUIRED)[/url]
